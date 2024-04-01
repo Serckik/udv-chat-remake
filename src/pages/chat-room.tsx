@@ -29,6 +29,9 @@ function ChatRoom() {
     }, [chatId, dispatch])
 
     useEffect(() => {
+        if (userData.name === '' && userData.currentRoom !== '') {
+            navigate('/')
+        }
         checkRoomIsDif()
         const chatData = localStorage.getItem(userData.currentRoom);
         if (chatData) {
@@ -47,6 +50,8 @@ function ChatRoom() {
 
     useEffect(() => {
         const handleStorage = () => {
+            const userDataString = sessionStorage.getItem('userData');
+            const userData = JSON.parse(userDataString || '{}');
             const chatData = localStorage.getItem(String(userData.currentRoom));
             if (chatData) {
                 dispatch(setCurrentChat(JSON.parse(chatData)))

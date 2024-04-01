@@ -15,7 +15,8 @@ function App() {
 
   useEffect(() => {
     const loadUserData = () => {
-      const userData = localStorage.getItem("userData");
+      const userData = sessionStorage.getItem("userData");
+      console.log(userData);
       if (userData) {
         dispatch(setUser(JSON.parse(userData)));
       }

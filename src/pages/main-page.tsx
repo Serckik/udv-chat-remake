@@ -38,7 +38,7 @@ function MainPage() {
             currentRoom: roomNumber
         };
         dispatch(setUser(data));
-        localStorage.setItem('userData', JSON.stringify(data));
+        sessionStorage.setItem('userData', JSON.stringify(data));
 
         navigate(`/chat/${data.currentRoom}`);
     };
