@@ -1,4 +1,11 @@
 import EmojiPicker, { Categories, EmojiClickData } from 'emoji-picker-react';
+import styled from "@emotion/styled";
+
+const StyledEmoji = styled(EmojiPicker)`
+    position: absolute !important;
+    left: 50%;
+    top: -385%;
+`;
 
 type EmojiProps = {
     onClick: (evt: EmojiClickData) => void
@@ -7,7 +14,7 @@ type EmojiProps = {
 
 function Emoji({ onClick, show }: EmojiProps) {
     return (
-        <EmojiPicker
+        <StyledEmoji
             onEmojiClick={(evt) => onClick(evt)}
             searchDisabled
             skinTonesDisabled
